@@ -1,0 +1,49 @@
+Generating report for minidump
+
+Application version 5.1.1.0
+ ... built from changelist 0
+
+OS version Linux 5.15.0-1049-gcp (network name: e6838f6d2545)
+Running 4 x86_64 processors (8 logical cores)
+Exception was "SIGSEGV: invalid attempt to write memory at address 0x0000000001c176c0"
+
+<SOURCE START>
+<SOURCE END>
+
+<CALLSTACK START>
+PalServer-Linux-Test!UE::Anim::FActiveStateMachineScope::MakeUniqueEventContextData() const [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/ActiveStateMachineScope.cpp:96]
+PalServer-Linux-Test!UE::Anim::FMessageStack::MakeEventContextData(TArray<TUniquePtr<UE::Anim::IAnimNotifyEventContextDataInterface const, TDefaultDelete<UE::Anim::IAnimNotifyEventContextDataInterface const> >, TSizedDefaultAllocator<32> >&) const [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNodeMessages.cpp:201]
+PalServer-Linux-Test!FAnimTickRecord::GatherContextData(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/AnimationAsset.cpp:250]
+PalServer-Linux-Test!FAnimNode_BlendSpacePlayerBase::UpdateInternal(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_BlendSpacePlayer.cpp:101]
+PalServer-Linux-Test!FPoseLinkBase::Update(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNodeBase.cpp:348]
+PalServer-Linux-Test!FAnimNode_BlendListBase::Update_AnyThread(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_BlendListBase.cpp:217]
+PalServer-Linux-Test!FPoseLinkBase::Update(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNodeBase.cpp:348]
+PalServer-Linux-Test!FAnimNode_BlendListBase::Update_AnyThread(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_BlendListBase.cpp:217]
+PalServer-Linux-Test!FPoseLinkBase::Update(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNodeBase.cpp:348]
+PalServer-Linux-Test!FAnimNode_BlendListBase::Update_AnyThread(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_BlendListBase.cpp:217]
+PalServer-Linux-Test!FPoseLinkBase::Update(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNodeBase.cpp:348]
+PalServer-Linux-Test!FAnimNode_Root::Update_AnyThread(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNode_Root.cpp:28]
+PalServer-Linux-Test!FPoseLinkBase::Update(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNodeBase.cpp:348]
+PalServer-Linux-Test!FAnimNode_StateMachine::Update_AnyThread(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNode_StateMachine.cpp:522]
+PalServer-Linux-Test!FPoseLinkBase::Update(FAnimationUpdateContext const&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNodeBase.cpp:348]
+PalServer-Linux-Test!FAnimNode_SaveCachedPose::PostGraphUpdate() [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimNode_SaveCachedPose.cpp:123]
+PalServer-Linux-Test!FAnimInstanceProxy::UpdateAnimationNode_WithRoot(FAnimationUpdateContext const&, FAnimNode_Base*, FName) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimInstanceProxy.cpp:142]
+PalServer-Linux-Test!FAnimInstanceProxy::UpdateAnimation_WithRoot(FAnimationUpdateContext const&, FAnimNode_Base*, FName) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimInstanceProxy.cpp:1255]
+PalServer-Linux-Test!FAnimInstanceProxy::UpdateAnimation() [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Animation/AnimInstanceProxy.cpp:1133]
+PalServer-Linux-Test!USkeletalMeshComponent::PerformAnimationProcessing(USkeletalMesh const*, UAnimInstance*, bool, TArray<UE::Math::TTransform<double>, TSizedDefaultAllocator<32> >&, TArray<UE::Math::TTransform<double>, TSizedDefaultAllocator<32> >&, UE::Math::TVector<double>&, FBlendedHeapCurve&, UE::Anim::FMeshAttributeContainer&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Components/SkeletalMeshComponent.cpp:2041]
+PalServer-Linux-Test!USkeletalMeshComponent::ParallelAnimationEvaluation() [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Engine/Private/Components/SkeletalMeshComponent.cpp:4006]
+PalServer-Linux-Test!TGraphTask<FParallelAnimationEvaluationTask>::ExecuteTask(TArray<FBaseGraphTask*, TSizedDefaultAllocator<32> >&, ENamedThreads::Type, bool) [C:/works/Pal-UE-EngineSource/Engine/Source/Runtime/Core/Public/Async/TaskGraphInterfaces.h:1348]
+PalServer-Linux-Test!LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateImpl<void LowLevelTasks::FTask::Init<FTaskGraphCompatibilityImplementation::QueueTask(FBaseGraphTask*, bool, ENamedThreads::Type, ENamedThreads::Type)::'lambda'()>(char16_t const*, LowLevelTasks::ETaskPriority, FTaskGraphCompatibilityImplementation::QueueTask(FBaseGraphTask*, bool, ENamedThreads::Type, ENamedThreads::Type)::'lambda'()&&, LowLevelTasks::ETaskFlags)::'lambda'(bool), false>::CallAndMove(LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>&, void*, unsigned int, bool) [C:/works/Pal-UE-EngineSource/Engine/Source/Runtime/Core/Public/Async/Fundamental/TaskDelegate.h:171]
+PalServer-Linux-Test!LowLevelTasks::FScheduler::ExecuteTask(LowLevelTasks::FTask*&) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Core/Private/Async/Fundamental/Scheduler.cpp:162]
+PalServer-Linux-Test!LowLevelTasks::FScheduler::WorkerMain(LowLevelTasks::FSleepEvent*, LowLevelTasks::TLocalQueueRegistry<1024u>::TLocalQueue*, unsigned int, bool) [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Core/Private/Async/Fundamental/Scheduler.cpp:402]
+PalServer-Linux-Test!FThreadImpl::Run() [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Core/Private/HAL/Thread.cpp:67]
+PalServer-Linux-Test!FRunnableThreadPThread::Run() [C:/works/Pal-UE-EngineSource/Engine/Source/./Runtime/Core/Private/HAL/PThreadRunnableThread.cpp:25]
+PalServer-Linux-Test!FRunnableThreadPThread::_ThreadProc(void*) [C:/works/Pal-UE-EngineSource/Engine/Source/Runtime/Core/Private/HAL/PThreadRunnableThread.h:185]
+libpthread.so.0!UnknownFunction(0x7ea6)
+libc.so.6!clone(+0x3e)
+
+<CALLSTACK END>
+
+0 loaded modules
+
+Report end!
